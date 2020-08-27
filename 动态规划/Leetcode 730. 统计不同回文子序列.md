@@ -8,9 +8,9 @@
 */
 ```
 
-![leetcode 730-1](https://github.com/xsgaaaa/leetcodeSolutions/tree/master/picture/leetcode730-1.png)
+![leetcode 730-1](picture/leetcode730-1.png)
 
-![leetcode 730-2](https://github.com/xsgaaaa/leetcodeSolutions/tree/master/picture/leetcode730-2.png)
+![leetcode 730-2](picture/leetcode730-2.png)
 
 ```cpp
 const long MOD=1e9+7;
