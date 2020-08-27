@@ -11,7 +11,7 @@
 */
 ```
 
-![leetcode 97](../picture/leetcode 97.png)
+![leetcode 97](picture/leetcode97.png)
 
 ```
 bool isInterleave(string s1, string s2, string s3) {

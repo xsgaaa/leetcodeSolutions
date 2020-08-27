@@ -10,7 +10,7 @@
 */
 ```
 
-![leetcode 366](../picture/leetcode 366.png)
+![leetcode 366](picture/leetcode 366.png)
 
 
 
