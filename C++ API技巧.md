@@ -83,3 +83,45 @@ string substr (size_t pos = 0, size_t len = npos) const;
 
 通常都是两个参数同时用，其实后面一个参数可以省略不写。表示直接获取`pos`到字符串末尾的子串。
 
+### 4.[ C/C++ 取整函数ceil(),floor()](https://www.cnblogs.com/zjutlitao/p/3558218.html)
+
+> 使用floor函数。floor(x)返回的是小于或等于x的最大整数。如：     
+
+```cpp
+floor(10.5) == 10    
+floor(-10.5) == -11
+```
+
+> 使用ceil函数。ceil(x)返回的是大于x的最小整数。如：     
+
+```cpp
+ceil(10.5) == 11    
+ceil(-10.5) ==-10
+```
+
+> floor()是向负无穷大舍入:
+
+```cpp
+floor(-10.5) == -11;
+```
+
+>
+> ceil()是向正无穷大舍入:
+
+```cpp
+ceil(-10.5) == -10
+```
+
+> fix朝零方向取整，如:
+
+```cpp
+fix(-1.3)=-1; fix(1.3)=1;
+```
+
+>
+> round四舍五入到最近的整数，如
+
+```cpp
+round(-1.3)=-1;round(-1.52)=-2;round(1.3)=1;round(1.52)=2
+```
+
