@@ -125,3 +125,67 @@ fix(-1.3)=-1; fix(1.3)=1;
 round(-1.3)=-1;round(-1.52)=-2;round(1.3)=1;round(1.52)=2
 ```
 
+### 5.C++ advanced(), prev(),next()
+
+> advance() 函数用于将迭代器前进（或者后退）指定长度的距离，其语法格式如下：
+
+```cpp
+void advance (InputIterator& it, Distance n);
+```
+
+> 其中 it 指的是目标迭代器，n 通常为一个整数。
+>
+> 注意，advance() 函数本身不会检测 it 迭代器移动 n 个位置的可行性，如果 it 迭代器的移动位置超出了合理范围，it 迭代器的指向将无法保证，此时使用 *it 将会导致程序崩溃。
+>
+> advance() 函数移动的是源迭代器。
+>
+> 例子:
+
+```cpp
+forward_list<int> mylist{1,2,3,4};
+forward_list<int>::iterator it = mylist.begin();
+advance(it, 2);
+cout << "*it = " << *it;
+*it = 3 		//结果
+```
+
+> prev 原意为“上一个”，但 prev() 的功能远比它的本意大得多，该函数可用来获取一个距离指定迭代器 n 个元素的迭代器。
+
+```cpp
+template <class BidirectionalIterator>
+    BidirectionalIterator prev (BidirectionalIterator it, typename iterator_traits<BidirectionalIterator>::difference_type n = 1);
+```
+
+> 其中，it 为源迭代器，其类型只能为双向迭代器或者随机访问迭代器；n 为指定新迭代器距离 it 的距离，默认值为 1。该函数会返回一个距离 it 迭代器 n 个元素的新迭代器。
+>
+> 注意，当 n 为正数时，其返回的迭代器将位于 it 左侧；反之，当 n 为负数时，其返回的迭代器位于 it 右侧。
+
+```cpp
+std::list<int> mylist{ 1,2,3,4,5 };
+std::list<int>::iterator it = mylist.end();
+//获取一个距离 it 迭代器 2 个元素的迭代器，由于 2 为正数，newit 位于 it 左侧
+auto newit = prev(it, 2);
+cout << "prev(it, 2) = " << *newit << endl;
+prev(it, 2) = 4			//结果
+```
+
+> next()函数和 prev 相反，next 原意为“下一个”，但其功能和 prev() 函数类似，即用来获取一个距离指定迭代器 n 个元素的迭代器
+
+```cpp
+template <class ForwardIterator>
+    ForwardIterator next (ForwardIterator it, typename iterator_traits<ForwardIterator>::difference_type n = 1);
+```
+
+> 其中 it 为源迭代器，其类似可以为前向迭代器、双向迭代器以及随机访问迭代器；n 为指定新迭代器距离 it 的距离，默认值为 1。该函数会返回一个距离 it 迭代器 n 个元素的新迭代器。
+>
+> 需要注意的是，当 it 为前向迭代器时，n 只能为正数，该函数最终得到的新迭代器位于 it 右侧；当 it 为双向迭代器或者随机访问迭代器时，若 n 为正数，则得到的新迭代器位于 it 右侧，反之位于 it 左侧。
+
+```cpp
+ std::list<int> mylist{ 1,2,3,4,5 };
+std::list<int>::iterator it = mylist.begin();
+//获取一个距离 it 迭代器 2 个元素的迭代器，由于 2 为正数，newit 位于 it 右侧
+auto newit = next(it, 2);
+cout << "next(it, 2) = " << *newit << endl;
+next(it, 2) = 3					//结果
+```
+
