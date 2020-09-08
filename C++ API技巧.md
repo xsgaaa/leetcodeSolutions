@@ -189,3 +189,40 @@ cout << "next(it, 2) = " << *newit << endl;
 next(it, 2) = 3					//结果
 ```
 
+### 6.priority_queue
+
+`priority_queue`默认定义大根堆。即出队列之后，得到的是一个升序的排列。
+
+如要定义小根堆，有以下几种方法：
+
+> (1) 利用STL中自带的小根堆，很简单，只要在定义的时候写成
+
+```cpp
+priority_queue<int,vector<int>,greater<int>> pq;
+//当为greater时，表示顶点小的值先出队列，最后获得是降序排列。所以是小根堆。
+```
+
+> (2) 如果对象是符合类型，需要自定义比较函数。
+
+```cpp
+//a.在类内部重载小于号和大于号
+struct Node
+{
+    int x,y;
+    bool operator <(Node a) const  {  return y < a.y; }
+    bool operator >(Node a) const  {  return y > a.y; }
+};
+    priority_queue<Node> A;                    //大根堆
+    priority_queue<Node, vector<Node>, greater<Node> > B;    //小根堆
+
+//b.利用仿函数，重载()运算符
+struct Node
+{int adj;
+ int val;
+};
+struct cmp
+{bool operator()(Node a,Node b) { return  a.val > b.val; }	//大根堆
+};
+priority_queue<Node,vector<Node>,cmp>Q; 
+```
+
