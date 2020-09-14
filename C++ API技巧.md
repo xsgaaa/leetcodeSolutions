@@ -226,3 +226,15 @@ struct cmp
 priority_queue<Node,vector<Node>,cmp>Q; 
 ```
 
+### 7.`lower_bound()`和`upper_bound()`
+
+```cpp
+在从小到大的排序数组中，
+
+lower_bound( begin,end,num)：从数组的begin位置到end-1位置二分查找第一个大于或等于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。
+
+upper_bound( begin,end,num)：从数组的begin位置到end-1位置二分查找第一个大于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。
+    
+ set,multiset,map,multimap一般有专用的lower_bound()或者upper_bound()，其效率比算法中的lower_bound()和upper_bound效率更高。 
+```
+
