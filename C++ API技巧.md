@@ -217,11 +217,16 @@ struct Node
 
 //b.利用仿函数，重载()运算符
 struct Node
-{int adj;
- int val;
+{
+    int adj;
+  	int val;
 };
 struct cmp
-{bool operator()(Node a,Node b) { return  a.val > b.val; }	//大根堆
+{
+    bool operator()(Node a,Node b) 
+    { 
+        return  a.val > b.val; //greater,小根堆
+    }	
 };
 priority_queue<Node,vector<Node>,cmp>Q; 
 ```
