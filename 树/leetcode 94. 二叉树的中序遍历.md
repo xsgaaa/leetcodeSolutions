@@ -27,7 +27,7 @@ vector<int> inorderTraversal(TreeNode* root) {
         return res;
     }
 
-//递归计算，递归不是主流
+//递归计算
 vector<int> res;
     void dfs(TreeNode *root)
     {
