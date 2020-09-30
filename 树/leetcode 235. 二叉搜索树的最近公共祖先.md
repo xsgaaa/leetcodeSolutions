@@ -1,4 +1,4 @@
-### [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+### leetcode [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 
 > 给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。
 >
